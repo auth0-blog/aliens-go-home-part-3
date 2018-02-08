@@ -8,6 +8,8 @@ import CurrentScore from './CurrentScore'
 import FlyingObject from './FlyingObject';
 import StartGame from './StartGame';
 import Title from './Title';
+import Login from './Login';
+import { signIn } from 'auth0-web';
 
 const Canvas = (props) => {
   const gameHeight = 1200;
@@ -34,6 +36,7 @@ const Canvas = (props) => {
       <g>
         <StartGame onClick={() => props.startGame()} />
         <Title />
+        <Login authenticate={signIn} />
       </g>
       }
 
