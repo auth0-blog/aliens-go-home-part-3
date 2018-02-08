@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 const Rank = (props) => {
   const { x, y } = props.position;
 
-  const rectId = 'rect' + props.rank;
-  const clipId = 'clip' + props.rank;
+  const rectId = 'rect' + props.player.rank;
+  const clipId = 'clip' + props.player.rank;
 
   const pictureStyle = {
     height: 60,
@@ -19,13 +19,13 @@ const Rank = (props) => {
     cursor: 'default',
   };
 
-  if (props.user.currentUser) textStyle.fill = '#e9ea64';
+  if (props.player.currentPlayer) textStyle.fill = '#e9ea64';
 
   const pictureProperties = {
     style: pictureStyle,
     x: x - 140,
     y: y - 40,
-    href: props.user.picture,
+    href: props.player.picture,
     clipPath: `url(#${clipId})`,
   };
 
@@ -46,22 +46,22 @@ const Rank = (props) => {
         </clipPath>
       </defs>
       <use xlinkHref={'#' + rectId} strokeWidth="2" stroke="black" />
-      <text filter="url(#shadow)" style={textStyle} x={x - 200} y={y}>{props.user.rank}º</text>
+      <text filter="url(#shadow)" style={textStyle} x={x - 200} y={y}>{props.player.rank}º</text>
       <image {...pictureProperties} />
-      <text filter="url(#shadow)" style={textStyle} x={x - 60} y={y}>{props.user.name}</text>
-      <text filter="url(#shadow)" style={textStyle} x={x + 350} y={y}>{props.user.maxScore}</text>
+      <text filter="url(#shadow)" style={textStyle} x={x - 60} y={y}>{props.player.name}</text>
+      <text filter="url(#shadow)" style={textStyle} x={x + 350} y={y}>{props.player.maxScore}</text>
     </g>
   );
 };
 
 Rank.propTypes = {
-  user: PropTypes.shape({
+  player: PropTypes.shape({
     id: PropTypes.string.isRequired,
     maxScore: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
     rank: PropTypes.number.isRequired,
-    currentUser: PropTypes.bool.isRequired,
+    currentPlayer: PropTypes.bool.isRequired,
   }).isRequired,
   position: PropTypes.shape({
     x: PropTypes.number.isRequired,

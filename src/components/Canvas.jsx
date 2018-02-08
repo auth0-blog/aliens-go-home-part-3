@@ -48,7 +48,7 @@ const Canvas = (props) => {
       <g>
         <StartGame onClick={() => props.startGame()} />
         <Title />
-        <Leaderboard currentUserId={'g7'} authenticate={signIn} leaderboard={leaderboard} />
+        <Leaderboard currentPlayer={leaderboard[6]} authenticate={signIn} leaderboard={leaderboard} />
       </g>
       }
 
