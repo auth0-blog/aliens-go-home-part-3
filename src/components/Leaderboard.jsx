@@ -17,7 +17,8 @@ const Leaderboard = (props) => {
     cursor: 'default',
   };
 
-  const leaderboard = props.leaderboard.sort((prev, next) => {
+  let leaderboard = props.leaderboard || [];
+  leaderboard = leaderboard.sort((prev, next) => {
     if (prev.maxScore === next.maxScore) {
       return prev.name <= next.name ? 1 : -1;
     }
@@ -65,11 +66,12 @@ Leaderboard.propTypes = {
     name: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
     ranking: PropTypes.number,
-  })).isRequired,
+  })),
 };
 
 Leaderboard.defaultProps = {
-  currentPlayer: null
+  currentPlayer: null,
+  leaderboard: null,
 };
 
 export default Leaderboard;
