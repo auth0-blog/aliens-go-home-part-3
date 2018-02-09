@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
+    "jwks-rsa": "^1.2.1",
+    "socket.io": "^2.0.4",
+    "socketio-jwt": "^4.5.0"
+  }
+}
