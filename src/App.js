@@ -19,6 +19,7 @@ class App extends Component {
     super(props);
     this.trackMouse = this.trackMouse.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.shoot = this.shoot.bind(this);
   }
 
   componentDidMount() {
@@ -82,6 +83,10 @@ class App extends Component {
     this.canvasMousePosition = getCanvasPosition(event);
   }
 
+  shoot() {
+    this.props.shoot(this.canvasMousePosition);
+  }
+
   render() {
     return (
       <Canvas
@@ -91,6 +96,7 @@ class App extends Component {
         players={this.props.players}
         startGame={this.props.startGame}
         trackMouse={event => (this.trackMouse(event))}
+        shoot={this.shoot}
       />
     );
   }
@@ -126,6 +132,7 @@ App.propTypes = {
     name: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
   })),
+  shoot: PropTypes.func.isRequired,
 };
 
 App.defaultProps = {
