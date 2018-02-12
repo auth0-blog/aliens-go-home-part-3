@@ -51,7 +51,7 @@ const Canvas = (props) => {
 
       <CannonPipe rotation={props.angle} />
       <CannonBase />
-      <CurrentScore score={15} />
+      <CurrentScore score={props.gameState.kills} />
 
       { ! props.gameState.started &&
       <g>
