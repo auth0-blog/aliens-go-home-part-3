@@ -23,7 +23,7 @@ const Canvas = (props) => {
       x: -180 - (i * 70),
       y: 35
     };
-    lives.push(<Heart position={heartPosition}/>);
+    lives.push(<Heart key={i} position={heartPosition}/>);
   }
 
   return (
