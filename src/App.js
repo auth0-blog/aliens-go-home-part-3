@@ -17,8 +17,6 @@ Auth0.configure({
 class App extends Component {
   constructor(props) {
     super(props);
-    this.trackMouse = this.trackMouse.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
     this.shoot = this.shoot.bind(this);
     this.socket = null;
     this.currentPlayer = null;
