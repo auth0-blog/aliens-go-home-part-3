@@ -68,6 +68,7 @@ class App extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.gameState.started && this.props.gameState.started) {
+      if (!this.currentPlayer) return;
       if (this.currentPlayer.maxScore < this.props.gameState.kills) {
         this.socket.emit('new-max-score', {
           ...this.currentPlayer,
